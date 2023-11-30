@@ -1,5 +1,24 @@
 # Solar Storm DSCOVR Prediction
 
+<p align="center">
+  <a href="https://docs.python.org/3.10/">
+  <img alt="Python version" src="https://img.shields.io/badge/python-3.10-blue?&logo=python">
+  </a>
+  <a href="https://github.com/pre-commit/pre-commit"><img src="https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit" alt="pre-commit" style="max-width:100%;"></a>
+  <a href="https://github.com/astral-sh/ruff">
+  <img alt="Ruff" src="https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/charliermarsh/ruff/main/assets/badge/v2.json?style=for-the-badge">
+  </a>
+  <a href="https://mypy-lang.org/">
+  <img alt="Checked with mypy" src="https://www.mypy-lang.org/static/mypy_badge.svg">
+  </a>
+  <a href="https://github.com/psf/black">
+  <img alt="Code style: black" src="https://img.shields.io/badge/code%20style-black-000000.svg">
+  </a>
+  <a href="https://jupyterbook.org">
+  <img alt="Documentation with jupyterbook" src="https://raw.githubusercontent.com/executablebooks/jupyter-book/master/docs/images/badge.svg">
+  </a>
+</p>
+
 ## Overview
 
 When operating reliably, the **National Oceanic and Atmospheric Administration's (NOAA's) space weather station, the Deep Space Climate Observatory (DSCOVR)📡🛰️**, can measure the strength and speed of the solar wind in space. This capability is crucial for predicting geomagnetic storms that can severely impact critical systems like **GPS🌐** and **electrical power grids on Earth⚡**. DSCOVR, however, continues to operate beyond its expected lifetime⌛, leading to occasional faults. Interestingly, these faults may themselves serve as indicators of space weather.
