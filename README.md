@@ -1,10 +1,12 @@
-# data science template based on kedro_tutorial template
+# Solar Storm DSCOVR Prediction
 
 ## Overview
 
-This is your new Kedro project for the [spaceflights tutorial](https://docs.kedro.org/en/stable/tutorial/spaceflights_tutorial.html), which was generated using `Kedro 0.18.14`.
+When operating reliably, the **National Oceanic and Atmospheric Administration's (NOAA's) space weather station, the Deep Space Climate Observatory (DSCOVR)🛰️**, can measure the strength and speed of the solar wind in space. This capability is crucial for predicting geomagnetic storms that can severely impact critical systems like **GPS** and **electrical power grids on Earth**. DSCOVR, however, continues to operate beyond its expected lifetime, leading to occasional faults. Interestingly, these faults may themselves serve as indicators of space weather.
 
-Take a look at the [Kedro documentation](https://docs.kedro.org) to get started.
+The `objective` of this project is to utilize the "raw" data from DSCOVR—specifically the faults and to `predict geomagnetic storms on Earth`.
+
+
 
 ## Rules and guidelines
 
