@@ -2,11 +2,12 @@
 
 ## Overview
 
-When operating reliably, the **National Oceanic and Atmospheric Administration's (NOAA's) space weather station, the Deep Space Climate Observatory (DSCOVR)🛰️**, can measure the strength and speed of the solar wind in space. This capability is crucial for predicting geomagnetic storms that can severely impact critical systems like **GPS** and **electrical power grids on Earth**. DSCOVR, however, continues to operate beyond its expected lifetime, leading to occasional faults. Interestingly, these faults may themselves serve as indicators of space weather.
+When operating reliably, the **National Oceanic and Atmospheric Administration's (NOAA's) space weather station, the Deep Space Climate Observatory (DSCOVR)📡🛰️**, can measure the strength and speed of the solar wind in space. This capability is crucial for predicting geomagnetic storms that can severely impact critical systems like **GPS🌐** and **electrical power grids on Earth⚡**. DSCOVR, however, continues to operate beyond its expected lifetime⌛, leading to occasional faults. Interestingly, these faults may themselves serve as indicators of space weather.
 
-The `objective` of this project is to utilize the "raw" data from DSCOVR—specifically the faults and to `predict geomagnetic storms on Earth`.
+The objective🎯 of this project is to utilize the "raw" data from DSCOVR, specifically the faults, and to predict🔮 geomagnetic storms on Earth🌍.
 
-
+## Background
+https://youtu.be/cdwJ6gqR0AM
 
 ## Rules and guidelines
 
