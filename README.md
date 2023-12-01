@@ -55,13 +55,13 @@ When you are interpreting your results, think about what satellite operators, el
 
 You may (but are not required to) consider the following when creating your solution:
 
-- What is Currently Measured by DSCOVR:
+- What is Currently Measured by DSCOVR:\
 The DSCOVR Faraday Cup is the instrument that provides the solar wind density, speed, and temperature used by NOAA to run its forecast models. NOAA refers to the densities, speeds, and temperatures as "level 2" data. These quantities are not measured directly, however; the instrument actually measures the entire spectra of solar wind particles over time and then computes those quantities from the spectra. These spectral data are referred to as "level 1" data, or sometimes as "raw" data.
 
-- DSCOVR Anomalies:
+- DSCOVR Anomalies:\
 To work well, a space science experiment must be stable and well-calibrated to translate the "raw" data into the more useful "level 2" data. DSCOVR no longer meets this criteria; in its old age, certain electrical anomalies and faults have been observed that shift the calibration and introduce noisy signals in unpredictable ways into DSCOVR raw data. When these faults occur, NOAA generally attempts to identify them and switches to a backup weather station rather than attempting to recalibrate or mitigate the error to produce the level 2 data accurately.
 
-- One possible approach to solve this challenge:
+- One possible approach to solve this challenge:\
 There are many ways to approach this problem. In particular, one powerful method has become widely accessible only in the last few years: machine learning regression. This challenge is a natural application for an adaptive neural network (ANN).
 
 In a machine learning regression, experimental data is fed to a system of linear operations, or network, with adjustable weights. Those weights are adjusted, or "trained" to produce outputs that mimic the provided ground truth. Once trained, the network can be applied to future experimental data to produce predictions.
@@ -75,6 +75,35 @@ There are a number of open-source software packages available that you can searc
 - Consider the timing of your predictions. Predicting when may be as challenging as predicting what.
 - Some data sets will contain gaps, as most experiments do not run uninterrupted for years at a time!
 - You may need to account for 'filled' data. These are data that are set to some very unusual value meant to be unmistakable for real measurements—often such data are a special value like NaN (not a number).
+
+
+## Data
+
+[What is DSCOVR?](https://solarsystem.nasa.gov/missions/DSCOVR/in-depth/)
+
+- Geospace Observatory (GO) Canada:
+  -   [Open data and information Portal (asc-csa.gc.ca)](https://donnees-data.asc-csa.gc.ca/en/dataset/0176458c-553b-48b4-a5e2-492022c81e85)
+  -   The GO Canada initiative is a project that brings together a variety of space weather (including solar wind) research tools and infrastructure. This network of ground-based instruments (more than 120 as of June 2019) that monitor space weather over Canada's North collects geospatial data, conducts scientific research, and turns scientific knowledge into applications that benefit Canadians. These data could be used to help validate the DSCOVR dataset.
+- [CARISMA Magnetometer Network](https://donnees-data.asc-csa.gc.ca/dataset/06f5e364-6e2c-4d1c-95c2-9fb7d871ca20)
+  - The Canadian Array for Realtime Investigations of Magnetic Activity (CARISMA) project is a series of ground-based sensors that detect disturbances in the Earth's magnetosphere (often related to solar winds). It could be useful for validating the DSCVR dataset. Please note that it is considered part of the GO Canada suite of projects, but it is being specifically mentioned here due to its pertinence to this challenge.
+- [Canadian Solar Flux Archive (F10.7)](https://www.spaceweather.gc.ca/forecast-prevision/solar-solaire/solarflux/sx-en.php)
+  -  Data from the Canadian solar flux archive could help you validate the data and your results from the DSCVR mission.
+- [CASSIOPE](https://donnees-data.asc-csa.gc.ca/dataset/98466021-2q1w-5g2d-677zwru214wx68)
+  -  The Canadian CASSIOPE satellite, operated by the University of Calgary, carries the Enhanced Polar Outflow Probe (e-POP) suite of scientific instruments to study the ionosphere, where space meets the upper atmosphere. The instruments collect data about the effects of solar storms and, more specifically, their harmful impact on radio communications, satellite navigation, and other space and ground-based technologies. This dataset could help you validate the DSCVR data.
+- NOAA Space Weather Prediction Center:
+  -  [Real Time Solar Wind](https://www.swpc.noaa.gov/products/real-time-solar-wind)
+  -  [Geospace Magnetosphere Movies](https://www.swpc.noaa.gov/products/geospace-magnetosphere-movies)
+  -  [3D Geomagnetic Forecast](https://www.swpc.noaa.gov/products/3-day-geomagnetic-forecast)
+  -  [Planetary K Index](https://www.swpc.noaa.gov/products/planetary-k-index)
+- [Experimental Data Repository](https://www.spaceappschallenge.org/develop-the-oracle-of-dscovr-experimental-data-repository/)
+  -  A description of the data set and some very brief quick-start tutorial material for loading and inspecting the data in Python will be provided.
+- [Records of various geomagnetic activity indices](https://hpde.io/NASA/NumericalData/OMNI/PT1H)
+  -  Working demonstration for reading the DSCOVR experimental data.
+
+
+
+
+
 
 
 
