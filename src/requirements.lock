@@ -74,6 +74,8 @@ certifi==2023.11.17
     # via requests
 cffi==1.16.0
     # via argon2-cffi-bindings
+cfgv==3.4.0
+    # via pre-commit
 chardet==5.2.0
     # via binaryornot
 charset-normalizer==3.3.2
@@ -101,6 +103,8 @@ decorator==5.1.1
     # via ipython
 defusedxml==0.7.1
     # via nbconvert
+distlib==0.3.7
+    # via virtualenv
 dynaconf==3.2.4
     # via kedro
 entrypoints==0.4
@@ -118,6 +122,8 @@ fastapi==0.104.1
     # via kedro-viz
 fastjsonschema==2.19.0
     # via nbformat
+filelock==3.13.1
+    # via virtualenv
 fqdn==1.5.1
     # via jsonschema
 frozenlist==1.4.0
@@ -141,6 +147,8 @@ h11==0.14.0
     # via uvicorn
 httptools==0.6.1
     # via uvicorn
+identify==2.5.32
+    # via pre-commit
 idna==3.6
     # via
     #   anyio
@@ -297,8 +305,12 @@ multidict==6.0.4
     # via
     #   aiohttp
     #   yarl
+mypy==1.7.1
+    # via -r src/requirements.txt
 mypy-extensions==1.0.0
-    # via black
+    # via
+    #   black
+    #   mypy
 nbclassic==1.0.0
     # via
     #   jupyterlab
@@ -326,6 +338,8 @@ nest-asyncio==1.5.8
     #   notebook
 networkx==3.2.1
     # via kedro-viz
+nodeenv==1.8.0
+    # via pre-commit
 notebook==6.5.6
     # via
     #   jupyter
@@ -375,18 +389,25 @@ pathspec==0.11.2
 pexpect==4.9.0
     # via ipython
 pip-tools==7.3.0
-    # via kedro
+    # via
+    #   -r src/requirements.txt
+    #   kedro
 platformdirs==4.0.0
     # via
     #   black
     #   jupyter-core
     #   pytoolconfig
+    #   virtualenv
 plotly==5.18.0
     # via kedro-viz
 pluggy==1.2.0
     # via
     #   kedro
     #   pytest
+pre-commit==3.5.0
+    # via -r src/requirements.txt
+pre-commit-hooks==4.5.0
+    # via -r src/requirements.txt
 prometheus-client==0.19.0
     # via
     #   jupyter-server
@@ -455,6 +476,7 @@ pyyaml==6.0.1
     #   jupyter-events
     #   kedro
     #   omegaconf
+    #   pre-commit
     #   uvicorn
 pyzmq==24.0.1
     # via
@@ -497,6 +519,10 @@ rpds-py==0.13.2
     # via
     #   jsonschema
     #   referencing
+ruamel-yaml==0.18.5
+    # via pre-commit-hooks
+ruamel-yaml-clib==0.2.8
+    # via ruamel-yaml
 ruff==0.0.292
     # via -r src/requirements.txt
 s3fs==2023.10.0
@@ -554,7 +580,9 @@ tomli==2.0.1
     #   build
     #   coverage
     #   jupyterlab
+    #   mypy
     #   pip-tools
+    #   pre-commit-hooks
     #   pyproject-hooks
     #   pytest
     #   pytoolconfig
@@ -592,6 +620,7 @@ types-python-dateutil==2.8.19.14
 typing-extensions==4.8.0
     # via
     #   fastapi
+    #   mypy
     #   pydantic
     #   sqlalchemy
     #   strawberry-graphql
@@ -609,6 +638,8 @@ uvicorn[standard]==0.22.0
     #   uvicorn
 uvloop==0.19.0
     # via uvicorn
+virtualenv==20.24.7
+    # via pre-commit
 watchfiles==0.21.0
     # via uvicorn
 watchgod==0.8.2

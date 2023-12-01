@@ -19,14 +19,66 @@
   </a>
 </p>
 
+
 ## Overview
 
 When operating reliably, the **National Oceanic and Atmospheric Administration's (NOAA's) space weather station, the Deep Space Climate Observatory (DSCOVR)📡🛰️**, can measure the strength and speed of the solar wind in space. This capability is crucial for predicting geomagnetic storms that can severely impact critical systems like **GPS🌐** and **electrical power grids on Earth⚡**. DSCOVR, however, continues to operate beyond its expected lifetime⌛, leading to occasional faults. Interestingly, these faults may themselves serve as indicators of space weather.
 
 The objective🎯 of this project is to utilize the "raw" data from DSCOVR, specifically the faults, and to predict🔮 geomagnetic storms on Earth🌍.
 
+
 ## Background
-https://youtu.be/cdwJ6gqR0AM
+
+[![Explanation](https://i.ytimg.com/vi/cdwJ6gqR0AM/maxresdefault.jpg?sqp=-oaymwEmCIAKENAF8quKqQMa8AEB-AH-CYAC0AWKAgwIABABGGUgYSgyMA8=&rs=AOn4CLC0eTxVhDCHVrrX2c14k74eqdZ9-A&quot)](https://youtu.be/cdwJ6gqR0AM)
+
+***Geomagnetic storms*** on Earth ***are a menace to many modern technologies***, particularly GPS satellite systems and electrical power grids. These storms occur when strong gusts of wind or storms from the Sun traverse interplanetary space and reach Earth, deforming Earth's magnetic field and showering particles into Earth's magnetic poles. ***These storms are notoriously difficult to predict.*** Even when solar flares and eruptions are observed that may cause a geomagnetic storm, the travel time for material to reach Earth could be anywhere from about two to four days (or it could miss Earth entirely).
+
+NOAA’s space weather station, the ***Deep Space Climate Observatory*** (DSCOVR), orbits about a million miles from Earth in a unique ***location*** called Lagrange point 1, which basically allows it to hover ***between the Sun and our planet***. From that vantage point, DSCOVR measures the plasma that may cause geomagnetic storms hours before it reaches us, ideally providing an early warning of what’s coming our way. The time that it takes for that plasma to reach Earth and trigger a geomagnetic storm might be anywhere from about 15 minutes to a few hours.
+
+NOAA uses measurements of the solar wind density, temperature, speed, and magnetic field to run computer simulations of the Earth's magnetic field and atmosphere. Based on those simulations, NOAA forecasts when a geomagnetic storm will occur and how strong it will be. ***The strength of the geomagnetic storm is measured on a scale called the Planetary K-index (Kp).***
+
+The DSCOVR mission, which was initially planned for five years, is now in its eighth year. Although the instrument onboard DSCOVR that measures the solar wind's magnetic field continues to function very well, the ***instrument*** that measures the solar ***wind density, temperature, and speed has lost sensitivity and experiences faults*** and anomalies from time to time. These faults are unpredictable and can even be difficult to catch in real time, making them particularly troublesome when they occur during events that may cause storms. To make matters more urgent, the Sun is nearing the peak activity phase of its 11-year cycle; these storms are more frequent now than at any point in DSCOVR's mission.
+
+
+## Objectives
+
+The challenge is to use the "raw" data from DSCOVR—faults and all—to predict geomagnetic storms on Earth. Currently, NOAA relies on stable, well-calibrated level 2 data for its forecasts (see Potential Considerations). We challenge you to develop your own geomagnetic activity forecast using the raw DSCOVR data directly as input.
+
+How will you address this challenge? Will you train a neural network on DSCOVR data to forecast the Planetary K-index (Kp), a measured quantity that indicates the magnitude of geomagnetic storms?
+
+How will you address DSCOVR’s anomalies? Do these anomalies themselves correlate with space weather or carry some useful information? Do these anomalies tend to occur before or during space weather events? Do the anomalies behave differently during strong space weather events? Are there real signals of the solar wind hiding in the noise? If there is any useful information, it is currently being overlooked and discarded—can you change that?
+
+When you are interpreting your results, think about what satellite operators, electrical utilities, the airline industry, the armed forces, and others need to consider when they are relying on a forecast from an aging instrument. It is important to be able to predict geomagnetic activity as quickly and accurately as possible.
+
+
+## Potential Considerations
+
+You may (but are not required to) consider the following when creating your solution:
+
+- What is Currently Measured by DSCOVR:
+The DSCOVR Faraday Cup is the instrument that provides the solar wind density, speed, and temperature used by NOAA to run its forecast models. NOAA refers to the densities, speeds, and temperatures as "level 2" data. These quantities are not measured directly, however; the instrument actually measures the entire spectra of solar wind particles over time and then computes those quantities from the spectra. These spectral data are referred to as "level 1" data, or sometimes as "raw" data.
+
+- DSCOVR Anomalies:
+To work well, a space science experiment must be stable and well-calibrated to translate the "raw" data into the more useful "level 2" data. DSCOVR no longer meets this criteria; in its old age, certain electrical anomalies and faults have been observed that shift the calibration and introduce noisy signals in unpredictable ways into DSCOVR raw data. When these faults occur, NOAA generally attempts to identify them and switches to a backup weather station rather than attempting to recalibrate or mitigate the error to produce the level 2 data accurately.
+
+- One possible approach to solve this challenge:
+There are many ways to approach this problem. In particular, one powerful method has become widely accessible only in the last few years: machine learning regression. This challenge is a natural application for an adaptive neural network (ANN).
+
+In a machine learning regression, experimental data is fed to a system of linear operations, or network, with adjustable weights. Those weights are adjusted, or "trained" to produce outputs that mimic the provided ground truth. Once trained, the network can be applied to future experimental data to produce predictions.
+
+In this case, the experimental data are the DSCOVR raw data, though it is left for you to decide how you will use this data (for example, does one point in time have predictive power? Ten points? An hour?).
+
+The ground truth could be any number of desirable indicators– there are no rules here! It could be the Planetary K-index (Kp) or some other measure of geomagnetic activity at a particular point in time (though some thought would have to be given to the timing). It could be a classification– "a severe Kp>6 storm will occur within 2 hours." It could be a prediction for whether Dubliners will witness the aurora borealis in the next 24 hours. What will you use as ground truth? Check out the records of various geomagnetic activity indices in the Resources section for ideas.
+
+There are a number of open-source software packages available that you can search for on the internet (particularly in Python) that provide the tools for a non-expert to perform optimized ANN training.
+
+- Consider the timing of your predictions. Predicting when may be as challenging as predicting what.
+- Some data sets will contain gaps, as most experiments do not run uninterrupted for years at a time!
+- You may need to account for 'filled' data. These are data that are set to some very unusual value meant to be unmistakable for real measurements—often such data are a special value like NaN (not a number).
+
+
+
+
 
 ## Rules and guidelines
 
