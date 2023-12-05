@@ -29,7 +29,9 @@ The objective🎯 of this project is to utilize the "raw" data from DSCOVR, spec
 
 ## Background
 
-[![Explanation](https://i.ytimg.com/vi/cdwJ6gqR0AM/maxresdefault.jpg?sqp=-oaymwEmCIAKENAF8quKqQMa8AEB-AH-CYAC0AWKAgwIABABGGUgYSgyMA8=&rs=AOn4CLC0eTxVhDCHVrrX2c14k74eqdZ9-A&quot)](https://youtu.be/cdwJ6gqR0AM)
+[![Explanation](https://i.ytimg.com/vi/cdwJ6gqR0AM/maxresdefault.jpg?sqp=-oaymwEmCIAKENAF8quKqQMa8AEB-AH-CYAC0AWKAgwIABABGGUgYSgyMA8=&rs=AOn4CLC0eTxVhDCHVrrX2c14k74eqdZ9-A&quot)](https://youtu.be/m_pDSJive-E)
+
+The Carrington Event of 1859 was perhaps the most intense solar event of the century. During this event, a series of powerful coronal mass ejections hit Earth head-on. The resulting effects were observed worldwide and observations of glowing night sky auroras were recorded globally, including near the equator. This space weather event caused geomagnetically induced currents in long stretches of the telegraph transmission lines that were common in that day, generating enough current for the lines to operate without batteries. Some telegraph stations even caught fire from the induced currents. There were no high voltage (HV) electrical power transmission lines back then, so fortunately, the impact of the Carrington Event on global safety and economics was minor.
 
 ***Geomagnetic storms*** on Earth ***are a menace to many modern technologies***, particularly GPS satellite systems and electrical power grids. These storms occur when strong gusts of wind or storms from the Sun traverse interplanetary space and reach Earth, deforming Earth's magnetic field and showering particles into Earth's magnetic poles. ***These storms are notoriously difficult to predict.*** Even when solar flares and eruptions are observed that may cause a geomagnetic storm, the travel time for material to reach Earth could be anywhere from about two to four days (or it could miss Earth entirely).
 
@@ -42,13 +44,7 @@ The DSCOVR mission, which was initially planned for five years, is now in its ei
 
 ## Objectives
 
-The challenge is to use the "raw" data from DSCOVR—faults and all—to predict geomagnetic storms on Earth. Currently, NOAA relies on stable, well-calibrated level 2 data for its forecasts (see Potential Considerations). We challenge you to develop your own geomagnetic activity forecast using the raw DSCOVR data directly as input.
-
-How will you address this challenge? Will you train a neural network on DSCOVR data to forecast the Planetary K-index (Kp), a measured quantity that indicates the magnitude of geomagnetic storms?
-
-How will you address DSCOVR’s anomalies? Do these anomalies themselves correlate with space weather or carry some useful information? Do these anomalies tend to occur before or during space weather events? Do the anomalies behave differently during strong space weather events? Are there real signals of the solar wind hiding in the noise? If there is any useful information, it is currently being overlooked and discarded—can you change that?
-
-When you are interpreting your results, think about what satellite operators, electrical utilities, the airline industry, the armed forces, and others need to consider when they are relying on a forecast from an aging instrument. It is important to be able to predict geomagnetic activity as quickly and accurately as possible.
+Your challenge is to develop a machine learning (ML) algorithm or neural network pipeline for the DSCOVR spacecraft's FC instrument to track and follow the changes in the peak solar wind speed so that DSCOVR can continue to provide early warnings of the next potential Carrington-like event that could adversely impact life and property on Earth. You can access historical solar wind data from DSCOVR and other missions to use to train your ML algorithm to correctly detect and track these solar wind peaks.
 
 
 ## Potential Considerations
@@ -76,7 +72,13 @@ There are a number of open-source software packages available that you can searc
 - Some data sets will contain gaps, as most experiments do not run uninterrupted for years at a time!
 - You may need to account for 'filled' data. These are data that are set to some very unusual value meant to be unmistakable for real measurements—often such data are a special value like NaN (not a number).
 
+As you develop your designs, you may (but are not required to) consider the following:
 
+- [Read a notional DSCOVR Faraday Cup instrument “calibration” and data analysis procedure.](https://www-2022.spaceappschallenge.org/space-apps-challenge-2022-example-resource-save-the-earth-from-another-carrington-event/)
+
+For data and resources related to this challenge, refer to the Resources tab at the top of the page. More resources may be added before the hackathon begins.
+
+NASA does not endorse any non-U.S. Government entity and is not responsible for information contained on non-U.S. Government websites. For non-U.S. Government websites, participants must comply with any data use parameters of that specific website.
 ## Data
 
 [What is DSCOVR?](https://solarsystem.nasa.gov/missions/DSCOVR/in-depth/)
@@ -100,13 +102,52 @@ There are a number of open-source software packages available that you can searc
 - [Records of various geomagnetic activity indices](https://hpde.io/NASA/NumericalData/OMNI/PT1H)
   -  Working demonstration for reading the DSCOVR experimental data.
 
+- NASA Resources
+  - [Earth Observing Dashboard](https://eodashboard.org/) \
+The Earth Observing Dashboard showcases examples of global environmental changes for 7 themes: Atmosphere, Water and Ocean, Biomass, Cryosphere, Agriculture, Covid-19, and Economy. You can explore countries and regions around the world to see how the indicators in specific locations changed over time.
+  - [The Wind Mission’s Magnetic Field Data Sets, BW(t)](https://cdaweb.gsfc.nasa.gov/pub/data/wind/mfi/mfi_h2/2022/) 
+ 
+
+```https://cdaweb.gsfc.nasa.gov/pub/data/wind/mfi/mfi_h2/2022/```
+
+To obtain BW(t) data for other years, replace the “2022” in the above URL with the desired year (e.g., 2021, 2020).
+
+Tips on How to Open/Read a CDF File:
+These instructions serve to cover the basics of how to open and read data saved in the cdf format. This will assume you have the following packages installed in your python environment:
+```
+cdflib
+spacepy
+matplotlib
+numpy
+wget
+```
+  - Install CDF library
+CDF library version 3.8 can be downloaded here: CDF library version 3.8 can be downloaded here:
+https://spdf.gsfc.nasa.gov/pub/software/cdf/dist/cdf38_0/
+For Windows, it is suggested you use the InstallMate installer to automatically set paths. For MacOS, the universal installer is probably easiest.
+Another option is to use
+https://pypi.org/project/cdflib/
+which can be installed without having to first install and configure the CDF software from NASA above.
+
+   - Install python packages to read CDF
+The two python packages we will use here to read CDF files are the pycdf package found within the spacepy toolset, and cdflib. These can be installed easily using pip, and possible conda (depending on your version of python). Depending on how you have your environment set up, it should be as simple as:
+pip install cdflib
+pip install spacepy
 
 
+Open a cdf file
+>from spacepy import pycdf
 
+>cdf_pycdf = pycdf.CDF(whateverfilename.cdf)
 
+Example Inspection
+>print('These are the variables within this file:\n')
 
+>print(cdf_pycdf)
 
+>print('This is the global metadata record of the file:\n')
 
+>print(cdf_pycdf.attrs)
 
 
 ## Rules and guidelines
