@@ -18,3 +18,8 @@ pre-commit-hooks
 pip-tools
 mypy
 selenium
+cdflib
+spacepy
+matplotlib
+numpy
+wget
