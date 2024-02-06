@@ -14,9 +14,6 @@ data/**
 # except their sub-folders
 !data/**/
 
-# ignore data file
-data/01_raw/full_raw_data.csv
-
 # also keep all .gitkeep files
 !.gitkeep
 
