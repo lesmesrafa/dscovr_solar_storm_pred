@@ -48,6 +48,12 @@ Flares are classified according to the strength of their X-ray emission, recorde
 [![Solar Flare](https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/X_Class_Solar_Flare_Sends_%E2%80%98Shockwaves%E2%80%99_on_The_Sun_%286819094556%29.jpg/1920px-X_Class_Solar_Flare_Sends_%E2%80%98Shockwaves%E2%80%99_on_The_Sun_%286819094556%29.jpg)](https://en.wikipedia.org/wiki/File:SDO_EVE_Late_Phase_Flares.webm)
 
 
+## Data set
+
+The data set contains data extracted from the Space Weather HMI Active Region Patch series (SHARP), integrated with information from solar flare catalogs. The data is derived from the Helioseismic and Magnetic Imager (HMI) from the solar Dynamics Observatory (SDO). 
+
+Click [here](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/EBCFKM) to download the data set.
+
 
 ## Rules and guidelines
 
