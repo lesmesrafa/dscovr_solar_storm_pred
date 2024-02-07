@@ -31,17 +31,17 @@ def build_raw_dataset() -> None:
     - The function does not return any value.
     - It is assumed that the CSV files are structured compatibly for concatenation.
     """
-    all_csvs = []
+    sharp = []
     rootdir = get_root_dir()
     for subdir, dirs, files in os.walk(rootdir):
         for file_name in files:
             if file_name.endswith(".csv"):
                 df_tmp = pd.read_csv(subdir + "/" + file_name, sep="\t")
                 df_tmp["Timestamp"] = pd.to_datetime(df_tmp["Timestamp"], format="%Y-%m-%d %H:%M:%S").astype('int64') // 10**9
-                all_csvs.append(df_tmp)
+                sharp.append(df_tmp)
 
-    result = pd.concat(all_csvs, ignore_index=True)            
-    result.to_csv("full_raw_data.csv")
+    sharp = pd.concat(sharp, ignore_index=True)            
+    sharp.to_csv("sharp.csv")
     
     
 

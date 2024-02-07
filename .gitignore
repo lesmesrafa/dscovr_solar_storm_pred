@@ -15,7 +15,7 @@ data/**
 !data/**/
 
 # ignore data file
-data/01_raw/full_raw_data.csv
+data/01_raw/sharp.csv
 
 # also keep all .gitkeep files
 !.gitkeep
