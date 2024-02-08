@@ -168,7 +168,7 @@ importlib-resources==6.1.1
     # via kedro
 iniconfig==2.0.0
     # via pytest
-ipykernel==6.29.1
+ipykernel==6.29.2
     # via
     #   jupyter
     #   jupyter-console
@@ -282,7 +282,7 @@ kedro==0.18.14
     #   kedro-datasets
     #   kedro-telemetry
     #   kedro-viz
-kedro-datasets[pandas-csvdataset,pandas-exceldataset,pandas-parquetdataset]==1.8.0
+kedro-datasets[pandas-csvdataset,pandas-exceldataset,pandas-parquetdataset,polars-parquetdataset]==1.8.0
     # via
     #   -r src/requirements.txt
     #   kedro-datasets
@@ -330,7 +330,7 @@ nbclassic==1.0.0
     #   notebook
 nbclient==0.9.0
     # via nbconvert
-nbconvert==7.15.0
+nbconvert==7.16.0
     # via
     #   jupyter
     #   jupyter-server
@@ -546,7 +546,7 @@ rpds-py==0.17.1
     # via
     #   jsonschema
     #   referencing
-ruamel-yaml==0.18.5
+ruamel-yaml==0.18.6
     # via pre-commit-hooks
 ruamel-yaml-clib==0.2.8
     # via ruamel-yaml

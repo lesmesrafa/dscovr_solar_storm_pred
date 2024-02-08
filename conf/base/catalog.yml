@@ -40,8 +40,8 @@
 # https://docs.kedro.org/en/stable/data/data_catalog.html
 
 sharp:
-  type: pandas.CSVDataset
-  filepath: data/01_raw/sharp.csv
+  type: pandas.ParquetDataset
+  filepath: data/01_raw/sharp.pq
 
 shuttles:
   type: pandas.ExcelDataset
